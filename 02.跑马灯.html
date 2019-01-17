@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <button @click="lang">浪起来</button>
+        <button @click="stop">停下来</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '猥琐发育,别浪~~',
+                timerId: 'null',
+                flag: true
+            },
+            methods: {
+                lang() {
+                    // setInterval(() => {
+                    //     console.log(this.msg);
+                    //     let start = this.msg.substring(0, 1);
+                    //     let end = this.msg.substring(1)
+                    //     this.msg = end + start
+                    // }, 1000)
+                    if (this.flag === false) return
+                        this.timerId = setInterval(function () {
+                            this.flag = false;
+                            console.log(this.flag);
+
+                            console.log(this.msg);
+                            let start = this.msg.substring(0, 1);
+                            let end = this.msg.substring(1)
+                            this.msg = end + start
+                        }.bind(vm), 1000)
+                    
+                },
+                stop() {
+                    clearInterval(this.timerId)
+                    this.timerId = null
+                    this.flag = true
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

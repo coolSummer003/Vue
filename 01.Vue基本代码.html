@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+        <script src="./vue-2.4.0.js"></script>
+    </head>
+    <body>
+        <!-- Vue实例所控制的区域 -->
+        <div id="app">
+            <p>{{msg}}</p>
+
+        </div>
+        <script>
+            // new 出来的这个 vm对象 就是 VM调度者
+            var vm = new Vue({
+                el: '#app',
+                // M 数据
+                data: {
+                    msg: '欢迎学习Vue'
+                },
+                methods:{
+
+                }
+            })
+        </script>
+    </body>
+</html>
